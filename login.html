@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>HerboYuca - Inicio de Sesión</title>
+
+  <!-- Aquí están los estilos CSS para que el login se vea bonito -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4caf50, #8bc34a); 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Ocupa toda la altura de la pantalla */
+    }
+
+    /* Caja que contiene todo el login */
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+      width: 300px;
+      text-align: center;
+    }
+
+    /* Título del formulario */
+    .login-container h2 {
+      margin-bottom: 25px;
+      color: #2e7d32; /* Verde oscuro */
+    }
+
+    /* Estilo para los campos de texto */
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    /* Estilo del botón */
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4caf50; /* Verde bonito */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    /* Efecto cuando pasas el mouse sobre el botón */
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    /* Mensaje de error o bienvenida */
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aquí va todo el formulario del login -->
+  <div class="login-container">
+    <!-- Este es el título grande que se muestra arriba -->
+    <h2>Bienvenido a HerboYuca</h2>
+
+    <!-- Campo para que el usuario escriba su nombre -->
+    <input type="text" id="usuario" placeholder="Usuario">
+
+    <!-- Campo para que el usuario escriba su contraseña -->
+    <input type="password" id="contrasena" placeholder="Contraseña">
+
+    <!-- Botón que ejecuta la función de login cuando se hace clic -->
+    <button onclick="iniciarSesion()">Iniciar sesión</button>
+
+    <!-- Aquí se mostrará el mensaje si el login es correcto o no -->
+    <div class="message" id="mensaje"></div>
+  </div>
+
+  <!-- Aquí va el código JavaScript que valida los datos -->
+  <script>
+    function iniciarSesion() {
+      // Obtener lo que el usuario escribió en los campos
+      const usuario = document.getElementById('usuario').value;
+      const contrasena = document.getElementById('contrasena').value;
+      const mensaje = document.getElementById('mensaje');
+
+      // Verificar si el usuario y contraseña son "admin"
+      if (usuario === 'admin' && contrasena === 'admin') {
+        mensaje.textContent = '¡Bienvenido, administrador!';
+        mensaje.style.color = 'green';
+
+        
+      } else {
+        mensaje.textContent = 'Usuario o contraseña incorrectos.';
+        mensaje.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>
